@@ -25,8 +25,8 @@ const App = () => {
   return (
     <Users
       users={users}
-      onDelete={(userId) => handleDelete(userId)}
-      onToggleBookmark={(userId) => handleToggleBookmark(userId)}
+      onDelete={handleDelete}
+      onToggleBookmark={handleToggleBookmark}
     />
   );
 };
