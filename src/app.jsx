@@ -23,11 +23,13 @@ const App = () => {
     }
 
     return (
-        <Users
-            users={users}
-            onDelete={handleDelete}
-            onToggleBookmark={handleToggleBookmark}
-        />
+        <>
+            <Users
+                users={users}
+                onDelete={handleDelete}
+                onToggleBookmark={handleToggleBookmark}
+            />
+        </>
     );
 };
 
