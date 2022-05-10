@@ -56,13 +56,14 @@ const Users = ({ users, ...rest }) => {
     };
 
     const filteredUsers = selectedProf
-        ? users.filter((user) => user.profession === selectedProf)
+        ? users.filter((user) => user.profession._id === selectedProf._id)
         : users;
 
     const count = filteredUsers.length;
     const userCrop = paginate(filteredUsers, currentPage, pageSize);
 
     const clearFilter = () => {
+        console.log("clear");
         setSelectedProf(undefined);
     };
 
@@ -84,7 +85,7 @@ const Users = ({ users, ...rest }) => {
                 </div>
             )}
 
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column mt-2">
                 <SearachStatus length={count} />
                 {count > 0 && (
                     <table className="table">
