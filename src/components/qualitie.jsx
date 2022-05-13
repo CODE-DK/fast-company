@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 
 const Qualitie = ({ color, name, _id }) => {
     const badge = `badge bg-${color} m-1`;
