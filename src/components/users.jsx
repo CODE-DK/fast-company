@@ -1,5 +1,4 @@
 import _ from "lodash";
-import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
 import API from "../api";
 import { paginate } from "../utils/paginate";
@@ -142,10 +141,6 @@ const Users = () => {
         );
     }
     return "loading...";
-};
-
-Users.propTypes = {
-    users: PropTypes.array.isRequired
 };
 
 export default Users;
