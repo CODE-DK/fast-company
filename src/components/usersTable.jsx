@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { Link } from "react-router-dom";
 import Bookmark from "./bookmark";
 import QualitiesList from "./qualitiesList";
 import Table from "./table";
@@ -14,7 +15,13 @@ const UserTable = ({
     onDelete
 }) => {
     const columns = {
-        name: { path: "name", name: "Имя" },
+        name: {
+            path: "name",
+            name: "Имя",
+            component: ({ _id, name }) => (
+                <Link to={`/users/${_id}`}>{name}</Link>
+            )
+        },
         qualities: {
             name: "Качества",
             component: ({ qualities }) => (

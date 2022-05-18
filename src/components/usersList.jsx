@@ -26,11 +26,11 @@ import UserTable from "./usersTable";
 
 // 4)
 // useEffect(() => {
-//     return console.log("When Users will unmount");
+//     return console.log("When UsersList will unmount");
 // });
 
 // ...rest означает оставшиеся параметры
-const Users = () => {
+const UsersList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [professions, setProfessions] = useState();
     const [selectedProf, setSelectedProf] = useState();
@@ -143,4 +143,4 @@ const Users = () => {
     return "loading...";
 };
 
-export default Users;
+export default UsersList;
