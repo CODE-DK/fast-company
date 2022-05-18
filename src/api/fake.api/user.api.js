@@ -148,6 +148,15 @@ export function fetchAll() {
     return new Promise((resolve) => {
         setTimeout(function () {
             resolve(users);
+        }, 2000);
+    });
+}
+
+export function findById(userId) {
+    return new Promise((resolve) => {
+        setTimeout(function () {
+            const user = users.find((user) => user._id === userId);
+            resolve(user);
         }, 1000);
     });
 }
