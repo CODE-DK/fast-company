@@ -1,11 +1,14 @@
 import _ from "lodash";
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import API from "../api";
+import GroupList from "../components/groupList";
+import Pagination from "../components/pagination";
+import QualitiesList from "../components/qualitiesList";
+import SearachStatus from "../components/searachStatus";
+import UserTable from "../components/usersTable";
 import { paginate } from "../utils/paginate";
-import GroupList from "./groupList";
-import Pagination from "./pagination";
-import SearachStatus from "./searachStatus";
-import UserTable from "./usersTable";
 
 // useEffect:
 
@@ -36,6 +39,8 @@ const Users = () => {
     const [selectedProf, setSelectedProf] = useState();
     const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
     const [users, setUsers] = useState();
+
+    const { userId } = useParams();
 
     const pageSize = 4;
 
@@ -80,6 +85,24 @@ const Users = () => {
     const handleSort = (item) => {
         setSortBy(item);
     };
+
+    if (userId) {
+        const user = users.find((user) => user._id === userId);
+        return (
+            <>
+                <h1>{user.name}</h1>
+                <h3>Профессия: {user.profession.name}</h3>
+                <div>
+                    <QualitiesList qualities={user.qualities} />
+                </div>
+                <p>completedMeetings: {user.completedMeetings}</p>
+                <h2>Rate: {user.rate}</h2>
+                <Link className="btn btn-primary small" to={"/users"}>
+                    Все пользователи
+                </Link>
+            </>
+        );
+    }
 
     if (users) {
         const filteredUsers = selectedProf

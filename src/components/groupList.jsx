@@ -34,10 +34,7 @@ GroupList.defaultProps = {
 };
 
 GroupList.propTypes = {
-    items: PropTypes.oneOfType(
-        PropTypes.object.isRequired,
-        PropTypes.array.isRequired
-    ),
+    items: PropTypes.object.isRequired,
     valueProperty: PropTypes.string.isRequired,
     contentProperty: PropTypes.string.isRequired,
     onItemSelect: PropTypes.func.isRequired,
